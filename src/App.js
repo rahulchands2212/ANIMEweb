@@ -81,7 +81,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Fire Force Season 3 Part 2 (2026)</h3>
-          <p>Episode 12</p>
         </div>
 
         <div className="card">
@@ -90,7 +89,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Dark Moon: The Blood Altar (2026)</h3>
-          <p>Episode 12</p>
         </div>
 
         <div className="card">
@@ -99,7 +97,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Hell Mode: The Hardcore Gamer</h3>
-          <p>Episode 10</p>
         </div>
 
         <div className="card">
@@ -108,7 +105,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Frieren: Beyond Journey’s End</h3>
-          <p>Episode 15</p>
         </div>
 
         <div className="card">
@@ -117,7 +113,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>MF Ghost Season 3 (2026)</h3>
-          <p>Episode 13</p>
         </div>
 
         <div className="card">
@@ -126,7 +121,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Jujutsu Kaisen: The Culling Game Part 1 (2026)</h3>
-          <p>Episode 12</p>
         </div>
 
         <div className="card">
@@ -135,7 +129,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Fullmetal Alchemist: Brotherhood (2009)</h3>
-          <p>Episode 64</p>
         </div>
 
         <div className="card">
@@ -144,7 +137,6 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Demon Slayer</h3>
-          <p>Episode 18</p>
         </div>
       </div>
     </div>
