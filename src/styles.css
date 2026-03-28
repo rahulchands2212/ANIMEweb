@@ -125,6 +125,26 @@ body {
   z-index: 900;
 }
 
+/*=============notice============*/
+.notice {
+  background: #ffc107;
+  color: black;
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/*===============SECTION TITLE==========*/
+
+.section-title {
+  background: #1a1a1a;
+  padding: 10px;
+  font-size: 14px;
+  color: #ffc107;
+  border-left: 4px solid #ffc107;
+  margin-top: 10px;
+}
+
 /* ================= CARDS ================= */
 
 /* GRID */
@@ -174,4 +194,21 @@ body {
 .card p {
   font-size: 13px;
   color: #ccc;
+}
+
+/* LIST */
+.list {
+  padding: 10px;
+}
+
+.list-item {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border-bottom: 1px solid #222;
+}
+
+.list-item img {
+  width: 60px;
+  border-radius: 4px;
 }

@@ -73,7 +73,16 @@ export default function App() {
         </ul>
       </div>
 
-      {/* ---------------------------------🔥 CARDS SECTION (IMPORTANT FIX) img 1*/}
+      {/*====================== NOTICE BAR========================== */}
+      <div className="notice">
+        welcome our anime website made by Rahul,Ayush,Deepak,Heeralala. THANK
+        YOU 🙂
+      </div>
+
+      {/*============================= SECTION TITLE ============================*/}
+      <div className="section-title">Recent Releases</div>
+
+      {/* ==================================🔥 CARDS SECTION (IMPORTANT FIX) img 1================*/}
       <div className="grid">
         <div className="card">
           <div className="img-box">
@@ -137,6 +146,46 @@ export default function App() {
             <span className="badge">SUB</span>
           </div>
           <h3>Demon Slayer</h3>
+        </div>
+      </div>
+
+      {/*===================== POPULAR SECTION =============*/}
+      <div className="section-title">Popular Ongoing</div>
+
+      <div className="list">
+        <div className="list-item">
+          <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" />
+          <div>
+            <h4>Demon Slayer</h4>
+          </div>
+        </div>
+
+        <div className="list-item">
+          <img src="https://cdn.myanimelist.net/images/anime/6/73245.jpg" />
+          <div>
+            <h4>One Piece</h4>
+          </div>
+        </div>
+
+        <div className="list-item">
+          <img src="https://bollyflixcdn.site/wp-content/uploads/2026/03/Download-The-Rising-of-the-Shield-Hero.jpg" />
+          <div>
+            <h4>The Rising of the Shield Hero</h4>
+          </div>
+        </div>
+
+        <div className="list-item">
+          <img src="https://bollyflixcdn.site/wp-content/uploads/2026/01/Download-An-Adventurers-Daily-Grind-at-Age-29.jpg" />
+          <div>
+            <h4>An Adventurer’s Daily Grind at Age 29</h4>
+          </div>
+        </div>
+
+        <div className="list-item">
+          <img src="https://cdn.myanimelist.net/images/anime/1565/111305l.jpg" />
+          <div>
+            <h4>Naruto Shippuden</h4>
+          </div>
         </div>
       </div>
     </div>
