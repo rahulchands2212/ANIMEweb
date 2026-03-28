@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  background: #111;
+  font-family: Arial;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: black;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO */
+.logo {
+  color: #ffc107;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ICON */
+.icon {
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* YELLOW */
+.yellow {
+  color: #ffc107;
+}
+
+/* SEARCH BOX */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 0 10px;
+  gap: 8px;
+  width: 200px;
+}
+
+/* INPUT */
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  padding: 6px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -220px;
+  width: 220px;
+  height: 100%;
+  background: black;
+  transition: 0.3s;
+  z-index: 1000;
+  padding-top: 20px;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* SIDEBAR LIST */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* SIDEBAR ITEMS */
+.sidebar li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  color: white;
+  font-size: 16px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+}
+
+/* MENU ICON */
+.menu-icon {
+  font-size: 20px;
+  color: white;
+}
+
+/* HOVER */
+.sidebar li:hover {
+  background: #1a1a1a;
+}
+
+/* CLOSE */
+.close {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+}
