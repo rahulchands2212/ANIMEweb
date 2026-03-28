@@ -18,13 +18,11 @@ export default function App() {
     <div>
       {/* NAVBAR */}
       <div className="navbar">
-        {/* LEFT */}
         <div className="left">
           <FaBars className="icon" onClick={() => setMenuOpen(true)} />
           <span className="logo">ANIME</span>
         </div>
 
-        {/* RIGHT */}
         <div className="right">
           {searchOpen ? (
             <div className="search-box">
@@ -73,6 +71,81 @@ export default function App() {
             <span>Anime List</span>
           </li>
         </ul>
+      </div>
+
+      {/* ---------------------------------🔥 CARDS SECTION (IMPORTANT FIX) img 1*/}
+      <div className="grid">
+        <div className="card">
+          <div className="img-box">
+            <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/fire-force-season-3-part-2-2026.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Fire Force Season 3 Part 2 (2026)</h3>
+          <p>Episode 12</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/dark-moon-the-blood-altar-2026.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Dark Moon: The Blood Altar (2026)</h3>
+          <p>Episode 12</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/hell-mode-the-hardcore-gamer-dominates-in-another-world-with-garbage-balancing-2026.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Hell Mode: The Hardcore Gamer</h3>
+          <p>Episode 10</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Frieren: Beyond Journey’s End</h3>
+          <p>Episode 15</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/mf-ghost-season-3-2026.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>MF Ghost Season 3 (2026)</h3>
+          <p>Episode 13</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/jujutsu-kaisen-the-culling-game-part-1-2026.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Jujutsu Kaisen: The Culling Game Part 1 (2026)</h3>
+          <p>Episode 12</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Fullmetal Alchemist: Brotherhood (2009)</h3>
+          <p>Episode 64</p>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Demon Slayer</h3>
+          <p>Episode 18</p>
+        </div>
       </div>
     </div>
   );

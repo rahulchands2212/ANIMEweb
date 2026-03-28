@@ -1,17 +1,18 @@
+/* BODY */
 body {
   margin: 0;
   background: #111;
   font-family: Arial;
-  overflow-x: hidden;
+  color: white;
 }
 
 /* NAVBAR */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  align-items: center;
   background: black;
+  padding: 12px;
 }
 
 /* LEFT */
@@ -19,12 +20,6 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-/* RIGHT */
-.right {
-  display: flex;
-  align-items: center;
 }
 
 /* LOGO */
@@ -41,7 +36,7 @@ body {
   cursor: pointer;
 }
 
-/* YELLOW */
+/* YELLOW ICON */
 .yellow {
   color: #ffc107;
 }
@@ -92,19 +87,17 @@ body {
   margin: 0;
 }
 
-/* SIDEBAR ITEMS */
+/* SIDEBAR ITEM */
 .sidebar li {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 15px;
-  color: white;
-  font-size: 16px;
   border-bottom: 1px solid #222;
   cursor: pointer;
 }
 
-/* MENU ICON */
+/* ICON WHITE */
 .menu-icon {
   font-size: 20px;
   color: white;
@@ -119,7 +112,6 @@ body {
 .close {
   padding: 10px;
   cursor: pointer;
-  color: white;
 }
 
 /* OVERLAY */
@@ -131,4 +123,55 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 900;
+}
+
+/* ================= CARDS ================= */
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+
+/* CARD */
+.card {
+  color: white;
+}
+
+/* IMAGE BOX */
+.img-box {
+  position: relative;
+}
+
+.img-box img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* SUB BADGE */
+.badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #ffc107;
+  color: black;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* TITLE */
+.card h3 {
+  font-size: 14px;
+  margin: 8px 0 4px;
+  color: #ffc107;
+}
+
+/* EPISODE */
+.card p {
+  font-size: 13px;
+  color: #ccc;
 }
