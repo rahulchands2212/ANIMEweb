@@ -200,6 +200,14 @@ export default function Home({ goList, goSeason, page, setPage }) {
 
         <div className="card">
           <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BMDZlMzhlMDktNWViMC00MDZjLWIzOTgtZDU1NjQ1YzU5ZGViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>365 days to get married</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
             <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/mf-ghost-season-3-2026.jpg" />
             <span className="badge">SUB</span>
           </div>
