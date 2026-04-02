@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "../styles.css";
 
 import { FaBars, FaSearch, FaHome } from "react-icons/fa";
 import { MdList } from "react-icons/md";
 import { IoArrowBack } from "react-icons/io5";
 
-export default function Watch({ goHome }) {
+export default function Watch({ goHome, goList }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
+
+  const videoRef = useRef(null); // 🔥 IMPORTANT
 
   const handleSearch = () => {
     alert("Searching: " + search);
@@ -77,30 +79,46 @@ export default function Watch({ goHome }) {
         </ul>
       </div>
 
-      {/* VIDEO */}
-      <div className="video-container">
-        <video controls width="100%">
+      {/* 🎬 VIDEO WITH DOUBLE TAP */}
+      <div className="video-wrapper">
+        <video ref={videoRef} controls width="100%">
           <source
             src="https://www.w3schools.com/html/mov_bbb.mp4"
             type="video/mp4"
           />
         </video>
+
+        {/* ⏪ LEFT DOUBLE TAP */}
+        <div
+          className="tap-zone left"
+          onDoubleClick={(e) => {
+            e.stopPropagation();
+            if (videoRef.current) {
+              videoRef.current.currentTime -= 10;
+            }
+          }}
+        ></div>
+
+        {/* ⏩ RIGHT DOUBLE TAP */}
+        <div
+          className="tap-zone right"
+          onDoubleClick={(e) => {
+            e.stopPropagation();
+            if (videoRef.current) {
+              videoRef.current.currentTime += 10;
+            }
+          }}
+        ></div>
       </div>
 
-      {/* CONTROL BAR */}
-      <div className="control-bar"></div>
-
-      {/*==================prev,allep,next=========*/}
-
+      {/* BUTTONS */}
       <div className="episode-nav">
         <button className="nav-btn">‹ Prev</button>
-
         <button className="nav-btn">All Episodes</button>
-
         <button className="nav-btn">Next ›</button>
       </div>
 
-      {/* EPISODE SECTION */}
+      {/* EPISODES */}
       <div className="episode-section">
         <div className="episode-header">
           <span>List of episodes:</span>

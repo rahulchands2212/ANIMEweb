@@ -4,7 +4,8 @@ import "../styles.css";
 import { FaBars, FaSearch, FaHome } from "react-icons/fa";
 import { MdList } from "react-icons/md";
 import { IoArrowBack } from "react-icons/io5";
-export default function Home({ goWatch }) {
+
+export default function Home({ goList, goSeason }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -65,24 +66,36 @@ export default function Home({ goWatch }) {
             <span>Home</span>
           </li>
 
-          <li onClick={goWatch}>
+          <li
+            onClick={() => {
+              goList();
+              setMenuOpen(false);
+            }}
+          >
             <MdList className="menu-icon" />
             <span>Anime List</span>
           </li>
         </ul>
       </div>
 
-      {/*====================== NOTICE BAR========================== */}
-      <div className="notice">
-        welcome our anime website made by Rahul,Ayush,Deepak,Heeralala. THANK
-        YOU 🙂
-      </div>
+      {/* NOTICE */}
+      <div className="notice">welcome our anime website made by Rahul 🙂</div>
 
-      {/*============================= SECTION TITLE ============================*/}
+      {/* TITLE */}
       <div className="section-title">Recent Releases</div>
 
-      {/* ==================================🔥 CARDS SECTION (IMPORTANT FIX) img 1================*/}
+      {/* ================= CARDS ================= */}
       <div className="grid">
+        {/* 🔥 ONLY AOT CLICKABLE */}
+        <div className="card">
+          <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BZjliODY5MzQtMmViZC00MTZmLWFhMWMtMjMwM2I3OGY1MTRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Attack on Titan</h3>
+        </div>
+
+        {/* BAQI SAB SAME */}
         <div className="card">
           <div className="img-box">
             <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/fire-force-season-3-part-2-2026.jpg" />
@@ -128,7 +141,7 @@ export default function Home({ goWatch }) {
             <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/jujutsu-kaisen-the-culling-game-part-1-2026.jpg" />
             <span className="badge">SUB</span>
           </div>
-          <h3>Jujutsu Kaisen: The Culling Game Part 1 (2026)</h3>
+          <h3>Jujutsu Kaisen</h3>
         </div>
 
         <div className="card">
@@ -136,10 +149,10 @@ export default function Home({ goWatch }) {
             <img src="https://cdn.myanimelist.net/images/anime/1208/94745.jpg" />
             <span className="badge">SUB</span>
           </div>
-          <h3>Fullmetal Alchemist: Brotherhood (2009)</h3>
+          <h3>Fullmetal Alchemist</h3>
         </div>
 
-        <div className="card">
+        <div className="card" onClick={goSeason}>
           <div className="img-box">
             <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" />
             <span className="badge">SUB</span>
@@ -148,7 +161,7 @@ export default function Home({ goWatch }) {
         </div>
       </div>
 
-      {/*===================== POPULAR SECTION =============*/}
+      {/* ================= POPULAR SECTION (UNCHANGED) ================= */}
       <div className="section-title">Popular Ongoing</div>
 
       <div className="list">

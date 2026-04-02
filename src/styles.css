@@ -1,120 +1,180 @@
-/* BODY */
-body {
-  margin: 0;
-  background: #111;
-  font-family: Arial;
-  color: white;
+/* GLOBAL */
+* {
+  box-sizing: border-box;
 }
 
-/* NAVBAR */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
+  background: black;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
-  padding: 12px;
+  animation: navDrop 0.6s ease;
 }
 
-/* LEFT */
+@keyframes navDrop {
+  0% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* LOGO */
 .logo {
-  color: #ffc107;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  color: #ffd700;
 }
 
 /* ICON */
 .icon {
-  font-size: 26px;
-  color: white;
+  font-size: 20px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* YELLOW ICON */
-.yellow {
-  color: #ffc107;
+.icon:hover {
+  transform: scale(1.2);
+  color: #ffd700;
 }
 
-/* SEARCH BOX */
+/* ================= SEARCH ================= */
 .search-box {
   display: flex;
   align-items: center;
-  background: #2a2a2a;
-  border-radius: 6px;
-  padding: 0 10px;
-  gap: 8px;
-  width: 200px;
+  gap: 10px;
+  background: #1a1a1a;
+  padding: 6px 12px;
+  border-radius: 25px;
+  animation: searchSlide 0.4s ease;
 }
 
-/* INPUT */
+@keyframes searchSlide {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.yellow {
+  transition: 0.4s;
+  color: #ffc107;
+}
+
+.yellow:hover {
+  transform: rotate(180deg) scale(1.2);
+  color: #ffd700;
+}
+
+.search-box .icon {
+  transition: 0.4s;
+}
+
+.search-box .icon:hover {
+  transform: rotateY(180deg);
+}
+
 .search-box input {
-  flex: 1;
-  min-width: 0;
   background: transparent;
   border: none;
-  color: white;
   outline: none;
-  padding: 6px;
+  color: white;
+  width: 120px;
+  transition: 0.3s;
 }
 
-/* SIDEBAR */
+.search-box input:focus {
+  width: 180px;
+}
+
+/* ================= SIDEBAR ================= */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -220px;
-  width: 220px;
+  left: -250px;
+  width: 250px;
   height: 100%;
-  background: black;
-  transition: 0.3s;
+  background: #111;
+  padding: 20px;
   z-index: 1000;
-  padding-top: 20px;
 }
 
 .sidebar.open {
-  left: 0;
+  animation: sidebarOpen 0.4s ease forwards;
 }
 
-/* SIDEBAR LIST */
+@keyframes sidebarOpen {
+  from {
+    left: -250px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.close {
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-/* SIDEBAR ITEM */
-.sidebar li {
+.sidebar ul li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px;
-  border-bottom: 1px solid #222;
+  gap: 10px;
+  padding: 12px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* ICON WHITE */
-.menu-icon {
-  font-size: 20px;
-  color: white;
+.sidebar ul li:hover {
+  background: #222;
+  color: #ffd700;
+  transform: translateX(5px);
 }
 
-/* HOVER */
-.sidebar li:hover {
-  background: #1a1a1a;
+/* ACTIVE PAGE */
+.sidebar ul li.active {
+  background: #222;
+  color: #ffd700;
 }
 
-/* CLOSE */
-.close {
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* OVERLAY */
+/* ================= OVERLAY ================= */
 .overlay {
   position: fixed;
   top: 0;
@@ -122,20 +182,43 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 900;
+  animation: fadeIn 0.3s ease;
 }
 
-/*=============notice============*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================= NOTICE (YELLOW BANNER) ================= */
 .notice {
-  background: #ffc107;
+  background: linear-gradient(90deg, #ffd700, #ffcc00);
   color: black;
-  padding: 10px;
-  font-size: 13px;
+  padding: 12px;
   text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: slideBanner 0.8s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
-/*===============SECTION TITLE==========*/
+@keyframes slideBanner {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+/* ================= SECTION ================= */
 .section-title {
   background: #1a1a1a;
   padding: 10px;
@@ -145,74 +228,165 @@ body {
   margin-top: 10px;
 }
 
-/* ================= CARDS ================= */
-
-/* GRID */
+/* ================= GRID ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
   padding: 15px;
 }
 
-/* CARD */
-.card {
-  color: white;
+.grid:hover .card {
+  opacity: 0.4;
+  filter: brightness(0.6);
 }
 
-/* IMAGE BOX */
-.img-box {
+/* ================= CARD ================= */
+.card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
   position: relative;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  opacity: 1 !important;
+  filter: brightness(1);
+  z-index: 2;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.25), transparent 70%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.card:hover::before {
+  left: 120%;
+  transition: 0.6s;
 }
 
 .img-box img {
   width: 100%;
-  border-radius: 6px;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.4s;
 }
 
-/* SUB BADGE */
+.card:hover img {
+  transform: scale(1.1);
+}
+
 .badge {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: #ffc107;
-  color: black;
+  top: 8px;
+  left: 8px;
+  background: red;
+  padding: 2px 6px;
   font-size: 12px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-weight: bold;
 }
 
-/* TITLE */
 .card h3 {
   font-size: 14px;
-  margin: 8px 0 4px;
-  color: #ffc107;
+  padding: 10px;
+  transition: 0.3s;
 }
 
-/* EPISODE */
-.card p {
-  font-size: 13px;
-  color: #ccc;
+.card:hover h3 {
+  color: #ffd700;
 }
 
-/* LIST */
+/* ================= POPULAR LIST ================= */
 .list {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .list-item {
   display: flex;
-  gap: 10px;
-  padding: 8px;
-  border-bottom: 1px solid #222;
+  gap: 12px;
+  padding: 12px;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s;
+  position: relative;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item:hover {
+  background: #1a1a1a;
+  transform: translateX(5px);
+}
+
+.list-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.list-item:hover::after {
+  opacity: 1;
 }
 
 .list-item img {
   width: 60px;
-  border-radius: 4px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
 }
-/* WATCH PAGE */
+
+.list-item h4 {
+  margin: 0;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.list-item:hover h4 {
+  color: #ffd700;
+}
+
+/* ==============================WATCH PAGE=============================== */
 .watch-page {
   background: #0d0d0d;
   color: white;
@@ -251,14 +425,6 @@ body {
 .small {
   font-size: 12px;
   color: #aaa;
-}
-
-/* SERVERS */
-.servers {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  align-items: center;
 }
 
 .tag {
@@ -426,3 +592,120 @@ body {
   font-weight: bold;
 }
 
+/*================double tab===============*/
+
+.video-wrapper {
+  position: relative;
+}
+
+/* LEFT & RIGHT zones */
+.tap-zone {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: calc(100% - 60px); /* 👈 controls area free */
+  z-index: 1;
+}
+
+/* LEFT */
+.tap-zone.left {
+  left: 0;
+}
+
+/* RIGHT */
+.tap-zone.right {
+  right: 0;
+}
+
+/*========================= SEASON PAGE FIXED ======================*/
+.season-btn {
+  text-align: center;
+}
+.season-page {
+  background: #0d0d0d;
+  color: white;
+}
+
+/* TOP BAR */
+.season-top {
+  background: #ffc107;
+  color: black;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* BODY */
+.season-body {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+}
+
+.season-poster {
+  width: 250px; /* ya jo size chahiye */
+  height: 350px;
+  object-fit: cover; /* 🔥 IMPORTANT */
+  border-radius: 10px;
+}
+
+.season-text h2 {
+  color: #ffc107;
+  font-size: 16px;
+}
+
+.label {
+  color: #00ffcc;
+}
+
+.desc {
+  color: #ddd;
+  font-size: 13px;
+}
+
+/* EPISODE */
+.episode-block {
+  padding: 15px;
+}
+
+.episode-block h3 {
+  color: #ffc107;
+}
+
+.line {
+  height: 1px;
+  background: #222;
+  margin: 10px 0;
+}
+
+.episode-range {
+  color: #ffc107;
+}
+
+.error {
+  color: orange;
+  margin-top: 10px;
+}
+
+/* BUTTON */
+.comment-btn {
+  margin: 20px auto;
+  width: 200px;
+  text-align: center;
+  background: #ffc107;
+  color: black;
+  padding: 12px;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.footer h2 {
+  color: #ffc107;
+}
