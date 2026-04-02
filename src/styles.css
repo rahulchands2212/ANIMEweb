@@ -385,6 +385,7 @@ body {
 .list-item:hover {
   background: #1a1a1a;
   transform: translateX(5px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
 }
 
 /* 🔥 red glow effect */
