@@ -13,11 +13,15 @@ body {
 
 /* ================= NAVBAR ================= */
 .navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
   background: black;
   padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000; /* 👈 sabke upar rahe */
   animation: navDrop 0.6s ease;
 }
 
@@ -49,7 +53,7 @@ body {
 }
 
 .logo:hover {
-  color: #ffd700;
+  color: red;
 }
 
 /* ICON */
@@ -61,7 +65,7 @@ body {
 
 .icon:hover {
   transform: scale(1.2);
-  color: #ffd700;
+  color: red;
 }
 
 /* ================= SEARCH ================= */
@@ -88,12 +92,12 @@ body {
 
 .yellow {
   transition: 0.4s;
-  color: #ffc107;
+  color: red;
 }
 
 .yellow:hover {
   transform: rotate(180deg) scale(1.2);
-  color: #ffd700;
+  color: red;
 }
 
 .search-box .icon {
@@ -164,14 +168,14 @@ body {
 
 .sidebar ul li:hover {
   background: #222;
-  color: #ffd700;
+  color: red;
   transform: translateX(5px);
 }
 
 /* ACTIVE PAGE */
 .sidebar ul li.active {
   background: #222;
-  color: #ffd700;
+  color: red;
 }
 
 /* ================= OVERLAY ================= */
@@ -196,17 +200,17 @@ body {
 
 /* ================= NOTICE (YELLOW BANNER) ================= */
 .notice {
-  background: linear-gradient(90deg, #ffd700, #ffcc00);
-  color: black;
+  background: linear-gradient(90deg, #ff6a6a, #ff2e2e);
+  color: white;
   padding: 12px;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 1px;
   animation: slideBanner 0.8s ease;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
-
 @keyframes slideBanner {
   from {
     transform: translateY(-20px);
@@ -223,8 +227,8 @@ body {
   background: #1a1a1a;
   padding: 10px;
   font-size: 14px;
-  color: #ffc107;
-  border-left: 4px solid #ffc107;
+  color: red;
+  border-left: 4px solid red;
   margin-top: 10px;
 }
 
@@ -319,7 +323,7 @@ body {
 }
 
 .card:hover h3 {
-  color: #ffd700;
+  color: red;
 }
 
 /* ================= POPULAR LIST ================= */
@@ -332,8 +336,8 @@ body {
 
 .list-item {
   display: flex;
-  gap: 12px;
-  padding: 12px;
+  gap: 10px;
+  padding: 8px 10px;
   align-items: center;
   cursor: pointer;
   width: 100%;
@@ -342,15 +346,19 @@ body {
   position: relative;
 }
 
-.list-item:last-child {
-  border-bottom: none;
+.list-item img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
 }
-
+/* 🔥 hover background */
 .list-item:hover {
   background: #1a1a1a;
   transform: translateX(5px);
 }
 
+/* 🔥 red glow effect */
 .list-item::after {
   content: "";
   position: absolute;
@@ -358,7 +366,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 215, 0, 0.1),
+    rgba(255, 0, 0, 0.08),
     transparent
   );
   opacity: 0;
@@ -369,23 +377,10 @@ body {
   opacity: 1;
 }
 
-.list-item img {
-  width: 60px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.list-item h4 {
-  margin: 0;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
+/* 🔥 text red on hover */
 .list-item:hover h4 {
-  color: #ffd700;
+  color: #ff4d4d;
 }
-
 /* ==============================WATCH PAGE=============================== */
 .watch-page {
   background: #0d0d0d;
@@ -397,6 +392,19 @@ body {
 .video-container {
   width: 100%;
   background: black;
+}
+
+.video-wrapper {
+  max-width: 900px; /* 👈 size control */
+  margin: 20px auto; /* center */
+  border-radius: 10px;
+  overflow: hidden;
+  background: black;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
 }
 
 /* CONTROLS */
@@ -469,10 +477,6 @@ body {
   background: #3a2f5c;
 }
 
-.episode span {
-  color: #00ffcc;
-  font-weight: bold;
-}
 /* WATCH PAGE */
 
 .watch-page {
@@ -508,17 +512,20 @@ body {
   padding: 10px;
   background: #111;
   color: #aaa;
-  border: none;
+  border: 1px solid #222;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
+/* 🔥 HOVER RED */
 .nav-btn:hover {
-  background: #111;
+  background: linear-gradient(90deg, #ff4d4d, #ff0000);
   color: white;
+  border-color: red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
-
 /* center button */
 .all-btn {
   flex: 1.5;
@@ -532,18 +539,10 @@ body {
   transition: 0.2s;
 }
 
-.control-bar b {
-  color: #00ff66;
-}
-
 /* INFO */
 .watch-info {
   text-align: center;
   padding: 15px;
-}
-
-.watch-info h3 {
-  color: #00ffcc;
 }
 
 .desc {
@@ -583,13 +582,20 @@ body {
 }
 
 .episode-item.active {
-  background: #3a2f5c;
+  background: linear-gradient(90deg, #ff4d4d, #ff0000);
+  color: white;
+  border-radius: 6px;
 }
 
 .ep-num {
-  color: #00ffcc;
+  color: white;
   padding-top: 16px;
   font-weight: bold;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+}
+
+.episode-item:hover .ep-num {
+  color: #ff0000;
 }
 
 /*================double tab===============*/
@@ -603,8 +609,9 @@ body {
   position: absolute;
   top: 0;
   width: 50%;
-  height: calc(100% - 60px); /* 👈 controls area free */
-  z-index: 1;
+  height: calc(100% - 80px); /* 👈 controls ke liye space */
+  z-index: 2;
+  pointer-events: auto;
 }
 
 /* LEFT */
@@ -619,7 +626,18 @@ body {
 
 /*========================= SEASON PAGE FIXED ======================*/
 .season-btn {
-  text-align: center;
+  background: linear-gradient(90deg, #ff4d4d, #ff0000);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.season-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
 .season-page {
   background: #0d0d0d;
@@ -628,11 +646,16 @@ body {
 
 /* TOP BAR */
 .season-top {
-  background: #ffc107;
-  color: black;
+  background: linear-gradient(90deg, #ff6a6a, #ff2e2e);
+  color: white;
   padding: 12px;
-  font-weight: bold;
+  text-align: center;
   font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: slideBanner 0.8s ease;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 
 /* BODY */
@@ -646,11 +669,17 @@ body {
   width: 250px; /* ya jo size chahiye */
   height: 350px;
   object-fit: cover; /* 🔥 IMPORTANT */
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  transition: 0.3s;
+}
+
+.season-poster:hover {
+  transform: scale(1.05);
 }
 
 .season-text h2 {
-  color: #ffc107;
+  color: #ff4d4d;
   font-size: 16px;
 }
 
@@ -669,7 +698,7 @@ body {
 }
 
 .episode-block h3 {
-  color: #ffc107;
+  color: #ff4d4d;
 }
 
 .line {
@@ -679,12 +708,7 @@ body {
 }
 
 .episode-range {
-  color: #ffc107;
-}
-
-.error {
-  color: orange;
-  margin-top: 10px;
+  color: #ff4d4d;
 }
 
 /* BUTTON */
@@ -692,7 +716,7 @@ body {
   margin: 20px auto;
   width: 200px;
   text-align: center;
-  background: #ffc107;
+  background: linear-gradient(90deg, #ff4d4d, #ff0000);
   color: black;
   padding: 12px;
   border-radius: 25px;
@@ -707,5 +731,5 @@ body {
 }
 
 .footer h2 {
-  color: #ffc107;
+  color: #ff4d4d;
 }

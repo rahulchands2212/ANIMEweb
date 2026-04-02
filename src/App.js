@@ -29,7 +29,7 @@ export default function App() {
 
       {/* 🔥 WATCH PAGE */}
       {page === "watch" && (
-        <Watch goHome={() => setPage("home")} goList={() => setpage("list")} />
+        <Watch goHome={() => setPage("home")} goList={() => setPage("list")} />
       )}
     </>
   );

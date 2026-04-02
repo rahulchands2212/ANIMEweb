@@ -10,14 +10,10 @@ export default function Watch({ goHome, goList }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
 
-  const videoRef = useRef(null); // 🔥 IMPORTANT
+  const videoRef = useRef(null);
 
   const handleSearch = () => {
     alert("Searching: " + search);
-  };
-
-  const goWatch = () => {
-    console.log("Already on watch page");
   };
 
   return (
@@ -72,16 +68,16 @@ export default function Watch({ goHome, goList }) {
             <span>Home</span>
           </li>
 
-          <li onClick={goWatch}>
+          <li onClick={goList}>
             <MdList className="menu-icon" />
             <span>Anime List</span>
           </li>
         </ul>
       </div>
 
-      {/* 🎬 VIDEO WITH DOUBLE TAP */}
+      {/* 🎬 VIDEO */}
       <div className="video-wrapper">
-        <video ref={videoRef} controls width="100%">
+        <video ref={videoRef} controls playsInline webkit-playsinline>
           <source
             src="https://www.w3schools.com/html/mov_bbb.mp4"
             type="video/mp4"
@@ -91,22 +87,52 @@ export default function Watch({ goHome, goList }) {
         {/* ⏪ LEFT DOUBLE TAP */}
         <div
           className="tap-zone left"
-          onDoubleClick={(e) => {
+          onClick={(e) => {
             e.stopPropagation();
-            if (videoRef.current) {
-              videoRef.current.currentTime -= 10;
+
+            const now = Date.now();
+
+            if (window.lastTap && now - window.lastTap < 300) {
+              if (videoRef.current) {
+                videoRef.current.currentTime -= 10;
+              }
+            } else {
+              if (videoRef.current) {
+                if (videoRef.current.paused) {
+                  videoRef.current.play();
+                } else {
+                  videoRef.current.pause();
+                }
+              }
             }
+
+            window.lastTap = now;
           }}
         ></div>
 
         {/* ⏩ RIGHT DOUBLE TAP */}
         <div
           className="tap-zone right"
-          onDoubleClick={(e) => {
+          onClick={(e) => {
             e.stopPropagation();
-            if (videoRef.current) {
-              videoRef.current.currentTime += 10;
+
+            const now = Date.now();
+
+            if (window.lastTap && now - window.lastTap < 300) {
+              if (videoRef.current) {
+                videoRef.current.currentTime += 10;
+              }
+            } else {
+              if (videoRef.current) {
+                if (videoRef.current.paused) {
+                  videoRef.current.play();
+                } else {
+                  videoRef.current.pause();
+                }
+              }
             }
+
+            window.lastTap = now;
           }}
         ></div>
       </div>

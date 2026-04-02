@@ -79,7 +79,10 @@ export default function Home({ goList, goSeason }) {
       </div>
 
       {/* NOTICE */}
-      <div className="notice">welcome our anime website made by Rahul 🙂</div>
+      <div className="notice">
+        welcome our anime website made by Rahul,Ayush,Deepak,Heeralala. THANK
+        YOU 🙂
+      </div>
 
       {/* TITLE */}
       <div className="section-title">Recent Releases</div>

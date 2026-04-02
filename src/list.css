@@ -60,7 +60,7 @@ body {
 }
 
 .logo:hover {
-  color: #ffd700;
+  color: red;
 }
 /* ICON */
 .icon {
@@ -71,7 +71,7 @@ body {
 
 .icon:hover {
   transform: scale(1.2);
-  color: #ffd700;
+  color: red;
 }
 
 /* ================= SEARCH (HOME MATCH) ================= */
@@ -98,13 +98,13 @@ body {
 
 /* SEARCH ICON */
 .yellow {
-  color: #ffc107;
+  color: red;
   transition: 0.4s;
 }
 
 .yellow:hover {
   transform: rotate(180deg) scale(1.2);
-  color: #ffd700;
+  color: red;
 }
 
 /* BACK ARROW FLIP */
@@ -127,13 +127,13 @@ body {
 /* 🔥 ARROW HOVER (flip + yellow) */
 .search-box svg:first-child:hover {
   transform: rotateY(180deg) scale(1.1);
-  color: #ffc107;
-  filter: drop-shadow(0 0 5px #ffc107);
+  color: red;
+  filter: drop-shadow(0 0 5px red);
 }
 
 /* ================= SEARCH ICON ================= */
 .search-box svg:last-child {
-  color: #ffc107;
+  color: red;
   display: inline-block;
   transition: all 0.4s ease;
 }
@@ -141,7 +141,7 @@ body {
 /* 🔥 MIRROR FLIP (LIKE ARROW) */
 .search-box svg:last-child:hover {
   transform: rotateY(180deg) scale(1.2);
-  filter: drop-shadow(0 0 8px #ffc107);
+  filter: drop-shadow(0 0 8px red);
 }
 
 /* INPUT */
@@ -202,12 +202,12 @@ body {
 
 .sidebar-menu li:hover {
   background: #1a1a1a;
-  color: #ffc107;
+  color: red;
 }
 
 .sidebar-menu li.active {
   background: #1a1a1a;
-  color: #ffc107;
+  color: red;
 }
 
 .menu-icon {
@@ -238,14 +238,14 @@ body {
 
 .sidebar ul li:hover {
   background: #222;
-  color: #ffd700;
+  color: red;
   transform: translateX(5px);
 }
 
 /* ACTIVE PAGE */
 .sidebar ul li.active {
   background: #222;
-  color: #ffd700;
+  color: red;
 }
 
 /* OVERLAY */
@@ -281,9 +281,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f4b400;
+  background: linear-gradient(90deg, #ff6a6a, #ff2e2e);
   padding: 10px;
-  color: black;
+  color: white;
 }
 
 /* PAGINATION */
@@ -291,20 +291,21 @@ body {
   margin: 0 5px;
   cursor: pointer;
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: 0.3s;
 }
 
+/* hover */
 .pagination span:hover {
-  background: green;
+  background: #ff4d4d;
   color: white;
 }
 
+/* active page */
 .active-page {
-  background: green;
+  background: #ff0000;
   color: white;
 }
-
 /* ================= ALPHABET ================= */
 
 .alphabet {
@@ -322,18 +323,18 @@ body {
 }
 
 .alphabet span:hover {
-  background: green;
+  background: red;
   color: #fff;
 }
 
 .active-letter {
-  background: green;
+  background: #ff0000;
   color: white;
   transform: scale(1.1);
+  border-radius: 6px;
 }
-
 /* =======================NOTICE SLIDE=========== */
-.anime-notice {
+.-notice {
   animation: noticeSlide 0.6s ease;
 }
 

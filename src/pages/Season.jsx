@@ -136,9 +136,12 @@ export default function Season({ goHome, goList, goWatch }) {
         </button>
       </div>
 
+      {/* BUTTON */}
+      <div className="comment-btn">Show Comments</div>
+
       {/* FOOTER */}
       <div className="footer">
-        <h2>GOGO ANIME</h2>
+        <h2> ANIME</h2>
         <p>Copyright © 2026</p>
       </div>
     </div>
