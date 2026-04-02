@@ -142,6 +142,42 @@ export default function Animelist({ goHome }) {
   const [activeLetter, setActiveLetter] = useState("All");
   const [activePage, setActivePage] = useState(1);
 
+  const allAnime = [...animeListLeft, ...animeListRight];
+
+  const filteredAnime =
+    activeLetter === "All"
+      ? allAnime
+      : activeLetter === "#"
+      ? allAnime.filter((item) => !isNaN(item[0]))
+      : allAnime.filter((item) =>
+          item.toLowerCase().startsWith(activeLetter.toLowerCase())
+        );
+
+  const sortedAnime = [...filteredAnime].sort((a, b) => {
+    if (!search) return 0;
+
+    const aMatch = a.toLowerCase().includes(search.toLowerCase());
+    const bMatch = b.toLowerCase().includes(search.toLowerCase());
+
+    return bMatch - aMatch; // 🔥 match wale upar
+  });
+
+  const highlightText = (text) => {
+    if (!search) return text;
+
+    const parts = text.split(new RegExp(`(${search})`, "gi"));
+
+    return parts.map((part, index) =>
+      part.toLowerCase() === search.toLowerCase() ? (
+        <span key={index} style={{ color: "#ff3b3b", fontWeight: "bold" }}>
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  };
+
   /* 🔥 TRUE SCROLL REPEAT ANIMATION */
   useEffect(() => {
     const items = document.querySelectorAll(".anime-item");
@@ -164,7 +200,7 @@ export default function Animelist({ goHome }) {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [filteredAnime]);
 
   return (
     <div className="container">
@@ -270,23 +306,31 @@ export default function Animelist({ goHome }) {
         </div>
 
         {/* LIST */}
-        <div className="list">
-          <ul>
-            {animeListLeft.map((anime, index) => (
-              <li key={index} className="anime-item">
-                {anime}
-              </li>
-            ))}
-          </ul>
+        {filteredAnime.length === 0 ? (
+          <p className="no-result">No anime found 😢</p>
+        ) : (
+          <div className="list">
+            <ul>
+              {sortedAnime
+                .slice(0, Math.ceil(sortedAnime.length / 2))
+                .map((anime, index) => (
+                  <li key={index} className="anime-item">
+                    {highlightText(anime)}
+                  </li>
+                ))}
+            </ul>
 
-          <ul>
-            {animeListRight.map((anime, index) => (
-              <li key={index} className="anime-item">
-                {anime}
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul>
+              {sortedAnime
+                .slice(Math.ceil(sortedAnime.length / 2))
+                .map((anime, index) => (
+                  <li key={index} className="anime-item">
+                    {highlightText(anime)}
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

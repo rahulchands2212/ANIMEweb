@@ -400,7 +400,8 @@ body {
 
   .list {
     flex-direction: column;
-    gap: 0;
+    display: flex;
+    gap: 40px;
   }
 
   .list li {
