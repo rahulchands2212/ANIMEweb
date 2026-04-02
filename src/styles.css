@@ -284,17 +284,18 @@ body {
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.03);
   opacity: 1 !important;
   filter: brightness(1);
   z-index: 2;
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
 }
 
 .card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.25), transparent 70%);
   opacity: 0;
   transition: 0.4s;
 }
@@ -702,6 +703,30 @@ body {
   transition: 0.3s;
 }
 
+@media (max-width: 768px) {
+  .season-body {
+    flex-direction: column; /* 🔥 main fix */
+    align-items: center;
+  }
+
+  .season-poster {
+    width: 90%;
+    height: auto;
+  }
+
+  .season-text {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .season-text h2 {
+    font-size: 14px;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+}
 .season-poster:hover {
   transform: scale(1.05);
 }
