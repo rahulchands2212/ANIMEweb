@@ -50,6 +50,7 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -77,6 +78,7 @@ body {
   padding: 6px 12px;
   border-radius: 25px;
   animation: searchSlide 0.4s ease;
+  position: relative;
 }
 
 @keyframes searchSlide {
@@ -90,6 +92,37 @@ body {
   }
 }
 
+/*===============search box suggestions==========*/
+.search-box {
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #222; /* 🔥 lighter dark */
+  border-radius: 10px;
+  margin-top: 6px;
+  z-index: 9999;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.suggest-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  color: #eee; /* 🔥 light text */
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.suggest-item:hover {
+  background: #ff3c3c; /* 🔥 red highlight */
+  color: white;
+}
 .yellow {
   transition: 0.4s;
   color: red;
@@ -238,11 +271,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
   padding: 15px;
-}
-
-.grid:hover .card {
-  opacity: 0.4;
-  filter: brightness(0.6);
 }
 
 /* ================= CARD ================= */

@@ -11,25 +11,40 @@ export default function App() {
   return (
     <>
       {page === "home" && (
-        <Home
-          goList={() => setPage("list")}
-          goSeason={() => setPage("season")}
-        />
+      <Home
+      goList={() => setPage("list")}
+      goSeason={() => setPage("season")}
+      page={page}
+      setPage={setPage}   // ✅ IMPORTANT
+    />
       )}
 
-      {page === "list" && <Animelist goHome={() => setPage("home")} />}
+      {page === "list" && (
+        <Animelist
+          goHome={() => setPage("home")}
+          page={page}
+          setPage={setPage}
+        />
+      )}
 
       {page === "season" && (
         <Season
           goHome={() => setPage("home")}
           goList={() => setPage("list")}
-          goWatch={() => setPage("watch")} // 🔥 ADD
+          goWatch={() => setPage("watch")}
+          page={page}
+          setPage={setPage}
         />
       )}
 
       {/* 🔥 WATCH PAGE */}
       {page === "watch" && (
-        <Watch goHome={() => setPage("home")} goList={() => setPage("list")} />
+        <Watch
+          goHome={() => setPage("home")}
+          goList={() => setPage("list")}
+          page={page}
+          setPage={setPage}
+        />
       )}
     </>
   );

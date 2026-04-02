@@ -5,13 +5,46 @@ import { FaBars, FaSearch, FaHome } from "react-icons/fa";
 import { MdList } from "react-icons/md";
 import { IoArrowBack } from "react-icons/io5";
 
-export default function Home({ goList, goSeason }) {
+export default function Home({ goList, goSeason, page, setPage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
 
+  // 🔥 DATA
+  const animeData = [
+    "Attack on Titan",
+    "Fire Force Season 3",
+    "Dark Moon: The Blood Altar",
+    "Hell Mode",
+    "Frieren",
+    "MF Ghost",
+    "Jujutsu Kaisen",
+    "Fullmetal Alchemist",
+    "Demon Slayer",
+    "One piece",
+    "the rising of the shield hero",
+    "an adventurer's daily grind at age 29",
+    "naruto shippuden",
+    "expose of heera bhai",
+  ];
+
+  // 🔥 FILTER
+  const filtered = animeData.filter((item) =>
+    item.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // 🔥 SEARCH BUTTON
   const handleSearch = () => {
-    alert("Searching: " + search);
+    const found = animeData.find((item) =>
+      item.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (found) {
+      alert("Opening: " + found);
+      goSeason(); // sab ke liye same page
+    } else {
+      alert("Anime not found");
+    }
   };
 
   return (
@@ -20,7 +53,15 @@ export default function Home({ goList, goSeason }) {
       <div className="navbar">
         <div className="left">
           <FaBars className="icon" onClick={() => setMenuOpen(true)} />
-          <span className="logo">ANIME</span>
+          <span
+            className="logo"
+            onClick={() => {
+              setPage("home");
+              setMenuOpen(false);
+            }}
+          >
+            ANIME
+          </span>
         </div>
 
         <div className="right">
@@ -31,12 +72,33 @@ export default function Home({ goList, goSeason }) {
                 onClick={() => setSearchOpen(false)}
               />
 
-              <input
-                type="text"
-                placeholder="search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
+              {/* 🔥 SEARCH + SUGGESTION */}
+              <div style={{ position: "relative", width: "200px" }}>
+                <input
+                  type="text"
+                  placeholder="search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+
+                {search && (
+                  <div className="suggestions">
+                    {filtered.length > 0 ? (
+                      filtered.map((item, index) => (
+                        <div
+                          key={index}
+                          className="suggest-item"
+                          onClick={() => setSearch(item)}
+                        >
+                          {item}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="suggest-item">No result</div>
+                    )}
+                  </div>
+                )}
+              </div>
 
               <FaSearch className="icon yellow" onClick={handleSearch} />
             </div>
@@ -61,11 +123,16 @@ export default function Home({ goList, goSeason }) {
         </div>
 
         <ul>
-          <li>
+          <li
+            className={page === "home" ? "active" : ""}
+            onClick={() => {
+              setPage("home");
+              setMenuOpen(false);
+            }}
+          >
             <FaHome className="menu-icon" />
             <span>Home</span>
           </li>
-
           <li
             onClick={() => {
               goList();

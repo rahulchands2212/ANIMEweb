@@ -22,7 +22,15 @@ export default function Watch({ goHome, goList }) {
       <div className="navbar">
         <div className="left">
           <FaBars className="icon" onClick={() => setMenuOpen(true)} />
-          <span className="logo">ANIME</span>
+          <span
+            className="logo"
+            onClick={() => {
+              goHome();
+              setMenuOpen(false);
+            }}
+          >
+            ANIME
+          </span>
         </div>
 
         <div className="right">
