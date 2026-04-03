@@ -47,6 +47,22 @@ export default function Home({ goList, goSeason, page, setPage }) {
     }
   };
 
+  function highlightText(text, query) {
+    if (!query) return text;
+
+    const regex = new RegExp(`(${query})`, "gi");
+
+    return text.split(regex).map((part, i) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <span key={i} className="highlight">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  }
+
   return (
     <div>
       {/* NAVBAR */}
@@ -90,7 +106,7 @@ export default function Home({ goList, goSeason, page, setPage }) {
                           className="suggest-item"
                           onClick={() => setSearch(item)}
                         >
-                          {item}
+                          {highlightText(item, search)}
                         </div>
                       ))
                     ) : (
@@ -208,6 +224,14 @@ export default function Home({ goList, goSeason, page, setPage }) {
 
         <div className="card">
           <div className="img-box">
+            <img src="https://m.media-amazon.com/images/I/81FwHN6RPpL._AC_UF1000,1000_QL80_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>A sister all you need</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
             <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/mf-ghost-season-3-2026.jpg" />
             <span className="badge">SUB</span>
           </div>
@@ -216,10 +240,66 @@ export default function Home({ goList, goSeason, page, setPage }) {
 
         <div className="card">
           <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDFhYjkwMDMtMTFmZS00ZjMyLWJlN2MtMWYyZTc2MzAzN2Q1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Ajin sea 2</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/DARLING_in_the_FRANXX%2C_second_key_visual.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Darling in the franxx</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
             <img src="https://gogoanimes.cv/wp-content/uploads/2026/01/jujutsu-kaisen-the-culling-game-part-1-2026.jpg" />
             <span className="badge">SUB</span>
           </div>
           <h3>Jujutsu Kaisen</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BM2JkMzM2ZmYtNWU4MS00MjZhLWFhZWUtYWFjYTJkN2RhZDliXkEyXkFqcGc@._V1_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Cyberpunk</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BNjg0YTVjNTItZTI1ZC00MDZlLTllYjQtMDY0ODMxNDdlYjY3XkEyXkFqcGc@._V1_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Alya sometime hide her feeling</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Magical_Sempai_volume_1_cover.jpg/250px-Magical_Sempai_volume_1_cover.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Magical senpai</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://m.media-amazon.com/images/I/818wfdUhx9L._AC_UF1000,1000_QL80_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Misfit of demon series</h3>
+        </div>
+
+        <div className="card">
+          <div className="img-box">
+            <img src="https://m.media-amazon.com/images/M/MV5BYWQwNjk3MDItNDAxMS00YTQ2LWEyNDctMGYyZTE5OGQxNGQ1XkEyXkFqcGc@._V1_.jpg" />
+            <span className="badge">SUB</span>
+          </div>
+          <h3>Mushoku tensei series</h3>
         </div>
 
         <div className="card">
@@ -277,6 +357,12 @@ export default function Home({ goList, goSeason, page, setPage }) {
             <h4>Naruto Shippuden</h4>
           </div>
         </div>
+      </div>
+
+      {/* ===============FOOTER ====================*/}
+      <div className="footer">
+        <h2> ANIME</h2>
+        <p>Copyright © 2026</p>
       </div>
     </div>
   );
