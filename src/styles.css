@@ -11,6 +11,12 @@ body {
   overflow-x: hidden;
 }
 
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 /* ================= NAVBAR ================= */
 .navbar {
   top: 0;
@@ -38,7 +44,6 @@ body {
     opacity: 1;
   }
 }
-
 .left {
   display: flex;
   align-items: center;
@@ -50,7 +55,6 @@ body {
   font-weight: bold;
   letter-spacing: 2px;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .logo:hover {
@@ -78,7 +82,6 @@ body {
   padding: 6px 12px;
   border-radius: 25px;
   animation: searchSlide 0.4s ease;
-  position: relative;
 }
 
 @keyframes searchSlide {
@@ -92,6 +95,36 @@ body {
   }
 }
 
+.yellow {
+  transition: 0.4s;
+  color: red;
+}
+
+.yellow:hover {
+  transform: rotate(180deg) scale(1.2);
+  color: red;
+}
+
+.search-box .icon {
+  transition: 0.4s;
+}
+
+.search-box .icon:hover {
+  transform: rotateY(180deg);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 120px;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  width: 180px;
+}
 /*===============search box suggestions==========*/
 .search-box {
   position: relative;

@@ -36,7 +36,7 @@ export default function Home({ goList, goSeason, page, setPage }) {
   // 🔥 SEARCH BUTTON
   const handleSearch = () => {
     const found = animeData.find((item) =>
-      item.toLowerCase().includes(search.toLowerCase())
+      item.toLowerCase().startsWith(search.toLowerCase())
     );
 
     if (found) {
@@ -362,7 +362,6 @@ export default function Home({ goList, goSeason, page, setPage }) {
       {/* ===============FOOTER ====================*/}
       <div className="footer">
         <h2> ANIME</h2>
-        <p>Copyright © 2026</p>
       </div>
     </div>
   );

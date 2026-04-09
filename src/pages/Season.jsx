@@ -16,12 +16,15 @@ export default function Season({ goHome, goList, goWatch }) {
       <div className="navbar">
         <div className="left">
           <FaBars className="icon" onClick={() => setMenuOpen(true)} />
-          <span className="logo"
-           onClick={() => {
-            goHome();
-            setMenuOpen(false);
-          }}
-          >ANIME</span>
+          <span
+            className="logo"
+            onClick={() => {
+              goHome();
+              setMenuOpen(false);
+            }}
+          >
+            ANIME
+          </span>
         </div>
 
         <div className="right">
@@ -147,7 +150,6 @@ export default function Season({ goHome, goList, goWatch }) {
       {/* FOOTER */}
       <div className="footer">
         <h2> ANIME</h2>
-        <p>Copyright © 2026</p>
       </div>
     </div>
   );
